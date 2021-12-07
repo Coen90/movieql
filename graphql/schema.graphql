@@ -1,3 +1,9 @@
+type Movie {
+  id: Int!
+  name: String!
+  score: Int!
+}
+
 type Person {
   id: Int!
   name: String!
@@ -8,4 +14,21 @@ type Person {
 type Query {
   people: [Person]!
   person(id: Int!): Person
+  movies: [Movie]!
+  movie(id: Int!): Movie
+  movieAPI(limit: Int, rating: Int): [MoviesAPI]!
+}
+
+type Mutation {
+  addMovie(name: String!, score: Int!): Movie!
+  deleteMovie(id: Int!): Boolean!
+}
+
+type MoviesAPI {
+  id: Int!
+  title: String!
+  rating: Float!
+  summary: String
+  language: String
+  medium_cover_image: String
 }
